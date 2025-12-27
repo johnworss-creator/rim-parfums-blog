@@ -170,7 +170,7 @@ export default function LandingPage() {
       category: t.industries.travel,
       title: t.industries.travel_title,
       points: t.industries.travel_points,
-      image: "https://images.unsplash.com/photo-1541336528065-8f1fdc435835?auto=format&fit=crop&w=1600&q=80" 
+      image: "/zayed-aeroport-international.jpg" 
     },
     {
       id: 3,
@@ -188,7 +188,7 @@ export default function LandingPage() {
         colSpan: "lg:col-span-2",
         bg: "bg-gray-100", 
         icon: <Monitor className="w-6 h-6 mb-4" />, 
-        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=400&q=80", 
+        image: "/bento photos/bento-computer.png", 
         dark: false
     },
     {
@@ -197,7 +197,7 @@ export default function LandingPage() {
         colSpan: "lg:col-span-1",
         bg: "bg-black", 
         icon: <Droplets className="w-6 h-6 mb-4 text-white" />, 
-        image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=300&q=80", 
+        image: "/bento photos/bento parfum.png", 
         dark: true
     },
     {
@@ -206,7 +206,7 @@ export default function LandingPage() {
         colSpan: "lg:col-span-1",
         bg: "bg-gray-100",
         icon: <PlaySquare className="w-6 h-6 mb-4" />,
-        image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=400&q=80", 
+        image: "/bento photos/bento tablette.png", 
         dark: false
     },
     {
@@ -215,7 +215,7 @@ export default function LandingPage() {
         colSpan: "lg:col-span-2",
         bg: "bg-gray-100", 
         icon: <Lightbulb className="w-6 h-6 mb-4" />,
-        image: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=400&q=80", 
+        image: "/bento photos/bento-fluid.png", 
         dark: false
     },
   ];
@@ -252,13 +252,31 @@ export default function LandingPage() {
     },
   ];
 
-  const perfumes = [
-    "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=300&q=80",
-    "https://images.unsplash.com/photo-1594035910387-fea477942698?auto=format&fit=crop&w=300&q=80",
-    "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=300&q=80",
-    "https://images.unsplash.com/photo-1588405764423-726c6216b170?auto=format&fit=crop&w=300&q=80",
+  const row1 = [
+    "/parfum photos/1.png",
+    "/parfum photos/2.png",
+    "/parfum photos/3.png",
+    "/parfum photos/4.png",
+    "/parfum photos/5.png",
+    "/parfum photos/6.png",
+    "/parfum photos/7.png",
   ];
-  const duplicatedPerfumes = [...perfumes, ...perfumes, ...perfumes];
+
+  const row2 = [
+    "/parfum photos/8.png",
+    "/parfum photos/9.png",
+    "/parfum photos/10.png",
+    "/parfum photos/11.png",
+    "/parfum photos/12.png",
+    "/parfum photos/13.png",
+    "/parfum photos/14.png",
+    "/parfum photos/15.png",
+  ];
+
+const duplicatedRow1 = [...row1, ...row1, ...row1];
+const duplicatedRow2 = [...row2, ...row2, ...row2];
+
+
 
   useEffect(() => {
     if (shapeTimeoutRef.current) clearTimeout(shapeTimeoutRef.current);
@@ -431,6 +449,8 @@ export default function LandingPage() {
                 </div>
                 <div className="absolute right-0 top-0 bottom-0 w-[45%] h-full pointer-events-none">
                     <img src={item.image} alt={item.title} className={`w-full h-full object-cover object-center ${item.dark ? '' : 'mix-blend-multiply'}`} loading="lazy" />
+                
+              
                 </div>
               </div>
             ))}
@@ -494,16 +514,40 @@ export default function LandingPage() {
              <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight mb-12 font-display">{t.catalog.title}</h2>
              <button className="px-8 py-3 bg-black text-white rounded-full font-bold hover:bg-gray-800 transition font-text">{t.catalog.cta}</button>
           </div>
-          <div className="flex mb-8">
-            <motion.div className="flex gap-6 pr-6" initial={{ x: "-50%" }} animate={{ x: "0%" }} transition={{ repeat: Infinity, ease: "linear", duration: 30 }}>
-              {duplicatedPerfumes.map((img, idx) => (<div key={`row1-${idx}`} className="shrink-0 w-48 h-48 sm:w-64 sm:h-64 rounded-3xl overflow-hidden bg-gray-50 shadow-sm border border-gray-100"><img src={img} alt="Perfume" className="w-full h-full object-cover" loading="lazy" /></div>))}
-            </motion.div>
-          </div>
-          <div className="flex">
-            <motion.div className="flex gap-6 pr-6" initial={{ x: "0%" }} animate={{ x: "-50%" }} transition={{ repeat: Infinity, ease: "linear", duration: 35 }}>
-              {duplicatedPerfumes.map((img, idx) => (<div key={`row2-${idx}`} className="shrink-0 w-48 h-48 sm:w-64 sm:h-64 rounded-3xl overflow-hidden bg-gray-50 shadow-sm border border-gray-100"><img src={img} alt="Perfume" className="w-full h-full object-cover" loading="lazy" /></div>))}
-            </motion.div>
-          </div>
+
+        {/* --- RANGÉE 1 --- */}
+<div className="flex mb-8">
+  <motion.div 
+    className="flex gap-6 pr-6" 
+    initial={{ x: "0%" }} 
+    animate={{ x: "-50%" }} // Défile vers la gauche
+    transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
+  >
+    {/* CORRECTION ICI : Utilisez duplicatedRow1 */}
+    {duplicatedRow1.map((img, idx) => (
+      <div key={`row1-${idx}`} className="shrink-0 w-48 h-48 sm:w-64 sm:h-64 rounded-3xl overflow-hidden bg-gray-50 shadow-sm border border-gray-100">
+        <img src={img} alt="Perfume" className="w-full h-full object-cover" loading="lazy" />
+      </div>
+    ))}
+  </motion.div>
+</div>
+
+{/* --- RANGÉE 2 --- */}
+<div className="flex">
+  <motion.div 
+    className="flex gap-6 pr-6" 
+    initial={{ x: "-50%" }} 
+    animate={{ x: "0%" }} // Défile vers la droite (sens inverse)
+    transition={{ repeat: Infinity, ease: "linear", duration: 35 }} // Vitesse légèrement différente
+  >
+    {/* CORRECTION ICI : Utilisez duplicatedRow2 */}
+    {duplicatedRow2.map((img, idx) => (
+      <div key={`row2-${idx}`} className="shrink-0 w-48 h-48 sm:w-64 sm:h-64 rounded-3xl overflow-hidden bg-gray-50 shadow-sm border border-gray-100">
+        <img src={img} alt="Perfume" className="w-full h-full object-cover" loading="lazy" />
+      </div>
+    ))}
+  </motion.div>
+</div>
         </section>
 
         <section id="testimonials" className="bg-white py-24 border-t border-gray-100 overflow-hidden">
