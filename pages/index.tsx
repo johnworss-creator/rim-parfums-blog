@@ -312,8 +312,7 @@ const duplicatedRow2 = [...row2, ...row2, ...row2];
       
         <div className="flex items-center justify-between w-full gap-x-4 sm:gap-x-10">
             <div className="flex items-center gap-2 cursor-pointer flex-nowrap">
-                <Hexagon className="w-5 h-5 sm:w-6 sm:h-6 text-black fill-black shrink-0" />
-                <span className="font-medium text-base sm:text-lg tracking-tighter uppercase font-display whitespace-nowrap">RIM Parfums</span>
+                <img src="/Rim parfum logo .png" alt="RIM PARFUMS" className="h-20 w-20 object-contain" />
             </div>
 
             <nav className="hidden lg:flex items-center space-x-6">
@@ -368,7 +367,6 @@ const duplicatedRow2 = [...row2, ...row2, ...row2];
 ></div>
                 <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 max-w-4xl mx-auto">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="flex items-center gap-2 text-white/80 uppercase tracking-widest text-[10px] sm:text-xs font-bold bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm font-text">
-                        <Hexagon className="w-3 h-3 sm:w-4 sm:h-4" /><span>{t.hero.badge}</span>
                     </motion.div>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-white tracking-tight leading-[1.1] font-display">
                         {t.hero.title}
@@ -665,8 +663,7 @@ const duplicatedRow2 = [...row2, ...row2, ...row2];
             <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
                 <AnimatedContainer className="space-y-4">
                     <div className="flex items-center gap-2">
-                        <Hexagon className="size-8 text-black" />
-                        <span className="font-medium text-xl tracking-tighter uppercase font-display">RIM Parfums</span>
+                    <img src="/Rim parfum logo .png" alt="RIM PARFUMS" className="h-20 w-20 object-contain" />
                     </div>
                     <p className="text-gray-600 mt-8 text-sm md:mt-0 max-w-xs leading-relaxed font-text">
                         {t.footer.rights} <br/>
