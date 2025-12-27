@@ -10,6 +10,8 @@ import {
   Instagram, Linkedin, Youtube, Store, TrendingUp, Lightbulb, PlaySquare, Monitor, Globe
 } from 'lucide-react';
 
+
+
 // --- OPTIMISATION POLICE ---
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
@@ -128,32 +130,32 @@ export default function LandingPage() {
       title: t.features.smart_diffusion,
       description: t.features.smart_diffusion_desc,
       icon: <Droplets className="w-8 h-8 text-black" />, 
-      desktopPos: { top: "30%", left: "25%" },
-      mobilePos: { top: "25%", left: "30%" } 
+      desktopPos: { top: "70%", left: "41%" },
+      mobilePos: { top: "55%", left: "40%" } 
     },
     {
       id: 2,
       title: t.features.ad_tech,
       description: t.features.ad_tech_desc,
       icon: <PlaySquare className="w-8 h-8 text-black" />,
-      desktopPos: { top: "20%", right: "20%" },
-      mobilePos: { top: "15%", left: "75%" }
+      desktopPos: { top: "45%", right: "30%" },
+      mobilePos: { top: "40%", left: "75%" }
     },
     {
       id: 3,
       title: t.features.rim_os,
       description: t.features.rim_os_desc,
       icon: <Cpu className="w-8 h-8 text-black" />,
-      desktopPos: { top: "55%", right: "30%" },
-      mobilePos: { top: "60%", left: "65%" }
+      desktopPos: { top: "70%", right: "30%" },
+      mobilePos: { top: "60%", left: "70%" }
     },
     {
       id: 4,
       title: t.features.showcase,
       description: t.features.showcase_desc,
       icon: <Lightbulb className="w-8 h-8 text-black" />,
-      desktopPos: { top: "45%", left: "15%" },
-      mobilePos: { top: "40%", left: "15%" }
+      desktopPos: { top: "38%", left: "48%" },
+      mobilePos: { top: "35%", left: "45%" }
     }
   ];
 
@@ -389,7 +391,7 @@ const duplicatedRow2 = [...row2, ...row2, ...row2];
             <div className="lg:hidden flex flex-col gap-6">
             <div className="w-full aspect-[4/3] bg-gray-100 rounded-2xl sm:rounded-3xl relative border border-gray-200 overflow-hidden shadow-inner bg-cover bg-center" style={{ backgroundImage: "url('machine-rp-01-noir.png')" }}>
                  
-                 <div className="absolute inset-0 flex items-center justify-center"><span className="text-gray-400 font-medium z-0 font-display">Touch View</span></div>
+  
                  {features.map((feature, idx) => {
                     const isActive = idx === currentMobileIndex;
                     return (
@@ -420,9 +422,28 @@ const duplicatedRow2 = [...row2, ...row2, ...row2];
 </div>   
                {features.map((feature) => (
                 <div key={feature.id} className="absolute z-10" style={{ top: feature.desktopPos.top, left: feature.desktopPos.left || 'auto', right: feature.desktopPos.right || 'auto' }} onMouseEnter={() => setHoverFeature(feature.id)} onMouseLeave={() => setHoverFeature(null)}>
-                  <motion.button whileHover={{ scale: 1.2 }} className="relative w-8 h-8 flex items-center justify-center cursor-pointer">
-                    <div className="relative w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg border border-gray-100"><div className="w-2.5 h-2.5 bg-black rounded-full" /></div>
-                  </motion.button>
+                  <motion.button 
+  whileHover={{ scale: 1.1 }} 
+  className="relative flex items-center justify-center cursor-pointer group"
+  // On retire w-8 h-8 ici pour laisser les enfants gérer la taille
+>
+  
+  {/* 1. L'animation "Pulse" (Onde) derrière le bouton */}
+  {/* L'onde grandit et disparait en boucle pour attirer l'attention */}
+  <span className="absolute inline-flex h-full w-full rounded-full bg-white opacity-40 animate-ping duration-[2000ms]" style={{ padding: '12px' }}></span>
+
+  {/* 2. Le cercle blanc principal */}
+  <div className="relative w-5 h-5 bg-white rounded-full flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.15)] z-10 transition-all duration-300 group-hover:bg-black">
+    
+    {/* 3. L'icône PLUS (+) */}
+    {/* Elle change de couleur (Noir -> Blanc) au survol pour un effet interactif */}
+    <Plus 
+      strokeWidth={2.5} 
+      className="w-4 h-4 text-black transition-colors duration-300 group-hover:text-white" 
+    />
+    
+  </div>
+</motion.button>
                   <AnimatePresence>
                     {hoverFeature === feature.id && (
                       <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }} className="absolute top-10 left-1/2 -translate-x-1/2 w-80 bg-white p-6 rounded-2xl shadow-xl z-20">
