@@ -342,7 +342,10 @@ export default function LandingPage() {
       <main className="pt-24">
         <section id="hero" className="max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
             <div className="relative w-full aspect-[1/1] sm:aspect-[4/3] lg:aspect-[21/9] bg-neutral-900 rounded-[2rem] sm:rounded-[3rem] overflow-hidden flex flex-col items-center justify-center text-center p-6 sm:p-12 transition-all duration-500">
-                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-70"></div>
+            <div 
+  className="absolute inset-0 bg-cover bg-center opacity-70" 
+  style={{ backgroundImage: "url('/fond-noir-machine-rp01.png')" }}
+></div>
                 <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-6 max-w-4xl mx-auto">
                     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="flex items-center gap-2 text-white/80 uppercase tracking-widest text-[10px] sm:text-xs font-bold bg-white/10 px-3 py-1 rounded-full backdrop-blur-sm font-text">
                         <Hexagon className="w-3 h-3 sm:w-4 sm:h-4" /><span>{t.hero.badge}</span>
@@ -363,8 +366,11 @@ export default function LandingPage() {
             <p className="text-gray-600 max-w-xl mx-auto lg:mx-0 text-sm sm:text-base font-text">{t.features.subtitle}</p>
           </div>
           <div className="w-full relative">
+
+
             <div className="lg:hidden flex flex-col gap-6">
-              <div className="w-full aspect-[4/3] bg-gray-100 rounded-2xl sm:rounded-3xl relative border border-gray-200 overflow-hidden shadow-inner">
+            <div className="w-full aspect-[4/3] bg-gray-100 rounded-2xl sm:rounded-3xl relative border border-gray-200 overflow-hidden shadow-inner bg-cover bg-center" style={{ backgroundImage: "url('machine-rp-01-noir.png')" }}>
+                 
                  <div className="absolute inset-0 flex items-center justify-center"><span className="text-gray-400 font-medium z-0 font-display">Touch View</span></div>
                  {features.map((feature, idx) => {
                     const isActive = idx === currentMobileIndex;
@@ -391,7 +397,9 @@ export default function LandingPage() {
             </div>
 
             <div className="hidden lg:block relative w-full aspect-[16/9] bg-gray-50 rounded-[3rem] overflow-hidden border border-gray-200 shadow-2xl">
-               <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200"><span className="text-gray-400 text-xl font-medium font-display">Desktop Interactive</span></div>
+            <div className="absolute inset-0 bg-cover bg-center" 
+     style={{ backgroundImage: "url('/machine-rp-01-noir.png')" }}>
+</div>   
                {features.map((feature) => (
                 <div key={feature.id} className="absolute z-10" style={{ top: feature.desktopPos.top, left: feature.desktopPos.left || 'auto', right: feature.desktopPos.right || 'auto' }} onMouseEnter={() => setHoverFeature(feature.id)} onMouseLeave={() => setHoverFeature(null)}>
                   <motion.button whileHover={{ scale: 1.2 }} className="relative w-8 h-8 flex items-center justify-center cursor-pointer">
